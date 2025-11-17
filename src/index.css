@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Warm healing palette */
+    --background: 32 35% 97%;
+    --foreground: 28 20% 25%;
+
+    --card: 30 40% 99%;
+    --card-foreground: 28 20% 25%;
+
+    --popover: 30 40% 99%;
+    --popover-foreground: 28 20% 25%;
+
+    /* Blush Terracotta primary */
+    --primary: 10 55% 67%;
+    --primary-foreground: 30 40% 99%;
+
+    /* Soft sage secondary */
+    --secondary: 140 20% 75%;
+    --secondary-foreground: 28 20% 25%;
+
+    /* Muted warm tones */
+    --muted: 35 25% 90%;
+    --muted-foreground: 28 15% 45%;
+
+    /* Soft gold accent */
+    --accent: 42 75% 65%;
+    --accent-foreground: 28 25% 20%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 30 40% 99%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 10 55% 67%;
+
+    --radius: 0.75rem;
+    
+    /* Custom healing colors */
+    --healing-terracotta: 10 55% 67%;
+    --healing-sage: 140 20% 75%;
+    --healing-gold: 42 75% 65%;
+    --healing-cream: 32 35% 97%;
+    --healing-warmth: 28 30% 92%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(32 35% 97%) 0%, hsl(35 30% 94%) 50%, hsl(140 15% 95%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(30 40% 99%) 0%, hsl(32 35% 97%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 10px 40px -15px hsl(28 20% 25% / 0.1);
+    --shadow-warm: 0 20px 50px -20px hsl(10 55% 67% / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Advanced Animations */
+    --animation-duration-fast: 0.3s;
+    --animation-duration-normal: 0.6s;
+    --animation-duration-slow: 1s;
+    --animation-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+ 
+  .dark {
+    --background: 28 25% 12%;
+    --foreground: 32 30% 95%;
+
+    --card: 28 20% 15%;
+    --card-foreground: 32 30% 95%;
+
+    --popover: 28 20% 15%;
+    --popover-foreground: 32 30% 95%;
+
+    --primary: 10 55% 60%;
+    --primary-foreground: 32 30% 95%;
+
+    --secondary: 140 15% 30%;
+    --secondary-foreground: 32 30% 95%;
+
+    --muted: 28 15% 25%;
+    --muted-foreground: 35 15% 65%;
+
+    --accent: 42 70% 55%;
+    --accent-foreground: 28 25% 12%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 32 30% 95%;
+
+    --border: 28 15% 22%;
+    --input: 28 15% 22%;
+    --ring: 10 55% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* High contrast mode for accessibility */
+  body.high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 0%;
+    --border: 0 0% 0%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
