@@ -1,10 +1,25 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import ParticleBackground from './ParticleBackground';
+
 const WhyNowSection = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-20 md:py-32 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <ParticleBackground />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Why Now */}
-          <div className="text-center space-y-8 animate-fade-in">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-8"
+          >
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               Why Now?
             </h2>
@@ -23,10 +38,15 @@ const WhyNowSection = () => {
                 and for the community that needs you.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Final CTA */}
-          <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-8 md:p-16 text-center space-y-8 animate-scale-in">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-8 md:p-16 text-center space-y-8"
+          >
             <h3 className="text-2xl md:text-4xl font-bold text-foreground">
               Invitation to Join
             </h3>
@@ -43,16 +63,18 @@ const WhyNowSection = () => {
                 to every person.
               </p>
             </div>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1, boxShadow: "0 20px 50px -10px hsl(var(--healing-terracotta)/0.5)" }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 const formSection = document.getElementById('contact-form');
                 formSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] hover:shadow-[0_15px_40px_-10px_hsl(var(--healing-terracotta)/0.4)] hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] transition-all duration-300 hover:animate-glow"
             >
               Join the Movement
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       </div>
     </section>

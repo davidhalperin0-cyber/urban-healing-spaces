@@ -1,4 +1,8 @@
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import heroImage from "@/assets/hero-healing-space.jpg";
+import Scene3D from './Scene3D';
+import ParticleBackground from './ParticleBackground';
 
 const HeroSection = () => {
   const scrollToForm = () => {
@@ -8,26 +12,66 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-healing-terracotta/20 via-healing-sage/20 to-healing-gold/20 animate-gradient" />
+      
       {/* Background image with overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
       </div>
 
+      {/* 3D Scene */}
+      <div className="absolute inset-0 opacity-60">
+        <Scene3D />
+      </div>
+
+      {/* Particle effects */}
+      <ParticleBackground />
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 md:py-32">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="block text-foreground mb-2">Healer? Facilitator?</span>
-            <span className="block text-foreground mb-4">Group Leader?</span>
-            <span className="block text-primary text-5xl md:text-7xl lg:text-8xl">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="block text-foreground mb-2"
+            >
+              Healer? Facilitator?
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="block text-foreground mb-4"
+            >
+              Group Leader?
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="block text-primary text-5xl md:text-7xl lg:text-8xl"
+            >
               A space is waiting for you.
-            </span>
-          </h1>
+            </motion.span>
+          </motion.h1>
           
-          <div className="max-w-2xl mx-auto space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="max-w-2xl mx-auto space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed"
+          >
             <p>
               We are creating a new network of urban healing spaces —
               soft, intimate, beautifully designed rooms
@@ -40,14 +84,19 @@ const HeroSection = () => {
             <p>
               Interested in joining a new movement that brings healing into the urban world?
             </p>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+            whileHover={{ scale: 1.1, boxShadow: "0 20px 50px -10px hsl(var(--healing-terracotta)/0.5)" }}
+            whileTap={{ scale: 0.95 }}
             onClick={scrollToForm}
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] hover:shadow-[0_15px_40px_-10px_hsl(var(--healing-terracotta)/0.4)] hover:scale-105 transition-all duration-300 animate-scale-in"
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] transition-all duration-300 hover:animate-glow"
           >
             Leave Your Details
-          </button>
+          </motion.button>
         </div>
       </div>
 
