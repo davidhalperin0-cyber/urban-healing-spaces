@@ -1,10 +1,23 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 const AboutSection = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <section id="about" className="py-20 md:py-32 bg-healing-warmth">
-      <div className="container mx-auto px-4">
+    <section id="about" ref={ref} className="py-20 md:py-32 bg-healing-warmth relative overflow-hidden">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-healing-warmth/5 to-transparent pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Design Excellence */}
-          <div className="text-center space-y-6 animate-fade-in">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-6"
+          >
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               World-Class Design & Advanced Experience
             </h2>
@@ -26,10 +39,15 @@ const AboutSection = () => {
                 built to inspire trust, connection and a sense of belonging.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* About the Project */}
-          <div className="bg-card rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-8 md:p-12 space-y-8 animate-scale-in">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-8 md:p-12 space-y-8"
+          >
             <h3 className="text-2xl md:text-4xl font-bold text-foreground text-center">
               About the Project
             </h3>
@@ -59,7 +77,7 @@ const AboutSection = () => {
                 with good conditions, soft aesthetics, and a sense of community.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
