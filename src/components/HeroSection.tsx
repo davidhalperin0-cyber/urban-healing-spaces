@@ -67,7 +67,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="max-w-2xl mx-auto space-y-6 text-lg md:text-xl leading-relaxed"
+            className="max-w-2xl mx-auto space-y-4 md:space-y-6 text-base md:text-lg lg:text-xl leading-relaxed px-2"
           >
             <p className="text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
               אנחנו יוצרים רשת חדשה של מרחבי ריפוי עירוניים —
@@ -90,7 +90,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.1, boxShadow: "0 20px 50px -10px hsl(var(--healing-terracotta)/0.5)" }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToForm}
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-xl text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] transition-all duration-300 hover:animate-glow"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-10 md:py-4 bg-primary text-primary-foreground rounded-xl text-base md:text-lg font-medium shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.3)] transition-all duration-300 hover:animate-glow"
           >
             השאירו פרטים
           </motion.button>

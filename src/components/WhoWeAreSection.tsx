@@ -28,8 +28,8 @@ const WhoWeAreSection = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               מי אנחנו
             </h2>
-            <div className="prose prose-lg max-w-3xl mx-auto text-muted-foreground leading-relaxed">
-              <p className="text-xl">
+            <div className="prose prose-sm md:prose-lg max-w-3xl mx-auto text-muted-foreground leading-relaxed px-2">
+              <p className="text-lg md:text-xl">
                 אנחנו <span className="text-primary font-semibold">דבורה ויעל</span> — אדריכלית ומנחה.
               </p>
               <p>
@@ -63,7 +63,7 @@ const WhoWeAreSection = () => {
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="flex items-start gap-4 p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                     <svg
@@ -84,8 +84,8 @@ const WhoWeAreSection = () => {
                 </motion.div>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <p className="text-xl text-foreground font-medium italic">
+            <div className="text-center mt-6 md:mt-8 px-2">
+              <p className="text-base md:text-lg lg:text-xl text-foreground font-medium italic">
                 כשיש מרחב רך, מעוצב ואמין —
                 העבודה שלכם הופכת לקהילה גדלה וחיה.
               </p>

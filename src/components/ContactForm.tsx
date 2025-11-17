@@ -67,7 +67,7 @@ const ContactForm = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-card rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-8 md:p-12 space-y-6"
+            className="bg-card rounded-2xl shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.15)] p-4 sm:p-6 md:p-8 lg:p-12 space-y-4 md:space-y-6"
           >
             <motion.div
               initial={{ opacity: 0, x: -20 }}

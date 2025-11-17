@@ -131,6 +131,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    /* Improve mobile touch interactions */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    /* Better text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* High contrast mode for accessibility */

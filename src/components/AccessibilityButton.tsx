@@ -50,11 +50,11 @@ const AccessibilityButton = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 right-8 z-50 p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="fixed bottom-24 right-4 md:right-8 z-50 p-3 md:p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
         aria-label="תפריט נגישות"
         aria-expanded={isOpen}
       >
-        <Accessibility className="w-6 h-6" />
+        <Accessibility className="w-5 h-5 md:w-6 md:h-6" />
       </motion.button>
 
       {/* Accessibility Menu */}
@@ -75,7 +75,7 @@ const AccessibilityButton = () => {
               initial={{ opacity: 0, x: 20, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 20, scale: 0.95 }}
-              className="fixed bottom-32 right-8 z-50 bg-card rounded-xl shadow-2xl p-4 min-w-[200px] border border-border"
+              className="fixed bottom-32 right-4 md:right-8 z-50 bg-card rounded-xl shadow-2xl p-4 min-w-[180px] md:min-w-[200px] max-w-[90vw] border border-border"
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-foreground">נגישות</h3>

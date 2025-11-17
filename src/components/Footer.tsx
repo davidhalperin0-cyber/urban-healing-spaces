@@ -49,7 +49,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="flex justify-center gap-6"
+            className="flex justify-center gap-4 md:gap-6 flex-wrap"
           >
             {/* Social media icons placeholder - can be customized */}
             <SocialIcon href="#" label="Facebook" />
@@ -77,13 +77,13 @@ const Footer = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-4 bg-primary text-primary-foreground rounded-full shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.5)] hover:shadow-[0_15px_40px_-10px_hsl(var(--healing-terracotta)/0.6)] hover:scale-110 transition-all duration-300 z-50"
+          className="fixed bottom-8 right-4 md:right-8 z-50 p-3 md:p-4 bg-primary text-primary-foreground rounded-full shadow-[0_10px_30px_-10px_hsl(var(--healing-terracotta)/0.5)] hover:shadow-[0_15px_40px_-10px_hsl(var(--healing-terracotta)/0.6)] hover:scale-110 transition-all duration-300"
           style={{
             animation: 'glow 1s ease-in-out infinite'
           }}
           aria-label="חזרה למעלה"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />
         </motion.button>
       )}
     </footer>
@@ -97,7 +97,7 @@ const SocialIcon = ({ href, label }: { href: string; label: string }) => {
       aria-label={label}
       whileHover={{ scale: 1.2, y: -5 }}
       whileTap={{ scale: 0.9 }}
-      className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-300"
+      className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-300"
     >
       <span className="text-lg font-semibold">{label[0]}</span>
     </motion.a>
